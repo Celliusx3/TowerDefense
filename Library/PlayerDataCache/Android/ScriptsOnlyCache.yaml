@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Bullet
+    - BulletParticle
     - DragDrop
     - Enemy
     - GameManager
@@ -20,6 +21,8 @@ ScriptsOnlyBuild:
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
+    UnityEditor.UI.dll:
+    - UnityEditor.UI.CanvasScalerEditor
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -67,30 +70,36 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11844}
     - Class: 114
-      Script: {instanceID: 12060}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 12238}
+      Script: {instanceID: 12236}
     - Class: 114
-      Script: {instanceID: 12286}
+      Script: {instanceID: 12284}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12752}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12846}
     - Class: 114
-      Script: {instanceID: 13036}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 13084}
+      Script: {instanceID: 13080}
     - Class: 114
-      Script: {instanceID: 13146}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13182}
+      Script: {instanceID: 13178}
     - Class: 114
-      Script: {instanceID: 31006}
+      Script: {instanceID: 13194}
+    - Class: 114
+      Script: {instanceID: 24384}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -333,7 +342,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 5e9ae9067c8c75f50749fd92ab711a61
+      Hash: 569bf1ffc9b0bd32974436c5fe0bfad0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Tower
@@ -591,16 +600,22 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
+      Hash: e803480be2d0b447d9df86078157458a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Bullet
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 217a4027f037064a33fb98fa11fc6cff
+      Hash: f77e7768482e8ded45621e8d40fb6330
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Bullet
+    className: BulletParticle
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

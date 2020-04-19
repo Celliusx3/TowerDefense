@@ -7,8 +7,6 @@ public class SpawnEnemy : MonoBehaviour
     private float spawnInterval = 0.5f;
     private int maxEnemies = 20;
     public GameObject enemyPrefab;
-
-    // public Wave[] waves;
     public int timeBetweenWaves = 5;
     private float lastSpawnTime;
     private int enemiesSpawned = 0;
@@ -23,8 +21,12 @@ public class SpawnEnemy : MonoBehaviour
         nextEnemyHealth = 100;
     }
 
-    private GameObject InstantiateEnemy(GameObject enemyPrefab) {
+    private GameObject InstantiateEnemy(GameObject enemyPrefab, int sortingOrder) {
         GameObject newEnemy = (GameObject)Instantiate(enemyPrefab);
+        SpriteRenderer spriteRenderer = newEnemy.GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = sortingOrder;
+        Canvas canvas = newEnemy.GetComponentInChildren<Canvas>();
+        canvas.sortingOrder = sortingOrder + 1;
         Enemy enemy = newEnemy.GetComponent<Enemy>();
         enemy.MaxHealth = nextEnemyHealth;
         nextEnemyHealth += 20;
@@ -67,7 +69,7 @@ public class SpawnEnemy : MonoBehaviour
             {
                 // 3  
                 lastSpawnTime = Time.time;
-                GameObject newEnemy = InstantiateEnemy(enemyPrefab);
+                GameObject newEnemy = InstantiateEnemy(enemyPrefab, -enemiesSpawned * 10);
                 enemiesSpawned++;
             }
             // 4 

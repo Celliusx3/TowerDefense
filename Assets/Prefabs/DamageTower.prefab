@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000000014901161, y: 0}
-  m_SizeDelta: {x: -0.20000002, y: -0.19999999}
+  m_AnchoredPosition: {x: 0.027500005, y: 0}
+  m_SizeDelta: {x: -0.14500001, y: -0.19999999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1030857870622619061
 CanvasRenderer:
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 377187fd572e54e528ade27b0252b61b, type: 3}
     m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 1
@@ -152,11 +152,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 57b0f768d1ea24b1c9e5ebbefd94ccec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2de8680d908a42449c3a831500884ad, type: 3}
   m_Color: {r: 0.8679245, g: 0.6076062, b: 0.30704877, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 0.48, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -178,12 +178,12 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.16, y: 0.16, z: 0.16, w: 0.16}
+    border: {x: 2.5, y: 2.5, z: 2.5, w: 2.5}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.48}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
@@ -216,6 +216,8 @@ MonoBehaviour:
   bullet: {fileID: 4792915627315820175, guid: e1b603a7cda1c4cf0a5f8e858956760d, type: 3}
   startFireRate: 0.5
   startDamage: 30
+  numberOfTargets: 1
+  canPoison: 0
 --- !u!1 &7382969198668126710
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +305,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7852342836503814025}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -350,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1000
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -358,7 +360,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 100
+  m_DynamicPixelsPerUnit: 1000
 --- !u!114 &998712473175772674
 MonoBehaviour:
   m_ObjectHideFlags: 0

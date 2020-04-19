@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public Text goldLabel;
     public Text nextTowerCostLabel;
+    public GameObject gameOverPanel;
 
     public int Gold {
         get
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
         set
         {
             gold = value;
-            goldLabel.GetComponent<Text>().text = "GOLD: " + gold;
+            goldLabel.GetComponent<Text>().text = gold.ToString();
         }
     }
 
@@ -40,13 +41,21 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Gold = 160;
-        NextTowerCost = 60;
+        OnRestartClicked();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void OnGameOver() {
+        gameOverPanel.SetActive(true);
+    }
+    public void OnRestartClicked(){
+        Gold = 10000000;
+        NextTowerCost = 60;
+        gameOverPanel.SetActive(false);
     }
 }

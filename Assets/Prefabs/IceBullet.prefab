@@ -100,3 +100,5 @@ MonoBehaviour:
   slowSpeed: 0.1
   damageOverTime: 0
   isMultiElectric: 0
+  explosiveParticles: {fileID: 4547416785029576453, guid: 13af706e4e59d494b87cc86245283383,
+    type: 3}

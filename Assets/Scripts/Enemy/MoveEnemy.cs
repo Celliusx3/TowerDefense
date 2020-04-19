@@ -7,12 +7,14 @@ public class MoveEnemy : MonoBehaviour
     private int waypointIndex = 0;
     private float lastWaypointSwitchTime;
     private Enemy enemy;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         lastWaypointSwitchTime = Time.time;
         enemy = gameObject.GetComponentInChildren<Enemy>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
     }
 
@@ -27,6 +29,7 @@ public class MoveEnemy : MonoBehaviour
                 waypointIndex ++ ;
                 lastWaypointSwitchTime = Time.time;
             } else {
+                gameManager.OnGameOver();
                 Destroy(gameObject);
             }
         }

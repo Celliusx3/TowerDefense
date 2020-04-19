@@ -13,6 +13,7 @@ public class Tower : MonoBehaviour
     public int startDamage;
     public int numberOfTargets = 1;
     public bool canPoison = false;
+    public int[] position;
 
     public int Level {
         get

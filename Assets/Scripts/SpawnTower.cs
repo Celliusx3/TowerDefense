@@ -44,6 +44,9 @@ public class SpawnTower : MonoBehaviour
 
 
         GameObject newTower = Instantiate(spawanableTowers[Random.Range(0, spawanableTowers.Length)], new Vector3(startPosition.x + spawnPosition.x, startPosition.y + spawnPosition.y, 0), transform.rotation);
+        newTower.GetComponent<Tower>().position = new int[] {
+            (int)spawnPosition.x, (int)spawnPosition.y
+        };
         Towers[(int)spawnPosition.x, (int)spawnPosition.y] = newTower;
         isAbleToSpawn.RemoveAt(position);
 
@@ -63,31 +66,50 @@ public class SpawnTower : MonoBehaviour
         Vector2 topRight = new Vector2(smallX,highY);
         Vector2 btmLeft = new Vector2(highX, smallY);
         Vector2 btmRight = new Vector2(highX, highY);
-        List<Vector2> test = new List<Vector2>(){topLeft, topRight, btmLeft, btmRight};
+        List<Vector2> nearestTiles = new List<Vector2>(){topLeft, topRight, btmLeft, btmRight};
 
-        float minimalEnemyDistance = float.MaxValue;
+        Vector2 nearestTile = nearestTiles[0];
+        float minimalEnemyDistance = Vector2.Distance(position, nearestTile);
         GameObject target = null;
 
-
-        foreach (Vector2 enemy in test)
-        {
-            if (enemy.x >= 0 && enemy.x < (xSize)
-            && (enemy.y >= 0 && enemy.y < (ySize))) {
-                GameObject gg = Towers[(int)enemy.x, (int)enemy.y];
-                if (gg != null && tower != gg) {
-                    float distance = Vector2.Distance(position, enemy);
-                    if (distance < minimalEnemyDistance) {
-                        minimalEnemyDistance = distance;
-                        target = gg;
-                    }
+        for (int i = 1; i < nearestTiles.Count; i++ ){
+            Vector2 tile = nearestTiles[i];
+            if (tile.x >= 0 && tile.x < (xSize)
+            && (tile.y >= 0 && tile.y < (ySize))) {
+                float distance = Vector2.Distance(position, tile);
+                if (distance < minimalEnemyDistance) {
+                    minimalEnemyDistance = distance;
+                    nearestTile = tile;
                 }
             }
         }
 
+        int xTile = (int)nearestTile.x;
+        int yTile = (int)nearestTile.y;
+
+        if (xTile >= 0 && xTile < (xSize)
+            && (yTile >= 0 && yTile < (ySize))) {
+            target = Towers[(int)nearestTile.x, (int)nearestTile.y] != tower ? Towers[(int)nearestTile.x, (int)nearestTile.y]: null;
+        }
+
         if (target != null) {
             Tower fuck = target.GetComponent<Tower>();
-            fuck.Level += 1;
-            Destroy(tower);
+            Tower oldTower = tower.GetComponent<Tower>();
+            if (fuck.Level == oldTower.Level) {
+                fuck.Level *= 2;
+                Towers[oldTower.position[0], oldTower.position[1]] = null;
+
+                isAbleToSpawn = new List<Vector2>();
+                for (int x = 0; x < xSize; ++x) {
+                    for (int y = 0; y < ySize; ++y){
+                        if (Towers[x,y] == null) {
+                            isAbleToSpawn.Add(new Vector2(x, y));
+                        }
+                    }
+                }
+
+                Destroy(tower);
+            }
         }
 
     }

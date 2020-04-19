@@ -12,10 +12,13 @@ public class Bullet : MonoBehaviour
     public int damageOverTime = 0;
     public bool isMultiElectric = false;
     private GameManager gameManager;
+    public GameObject explosiveParticles;
+    private SpriteRenderer spriteRenderer;
 
     void Start() 
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update() 
@@ -34,9 +37,17 @@ public class Bullet : MonoBehaviour
                     Destroy(target);
                     gameManager.Gold += goldOnKill;
                 }
+                GameObject bulletParticle = (GameObject)Instantiate(explosiveParticles, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
+                BulletParticle bulletParticle1 = bulletParticle.GetComponent<BulletParticle>();
+                bulletParticle1.bulletColor = spriteRenderer.color;
+
+
                 Destroy(gameObject);
             }
         } else {
+            GameObject bulletParticle = (GameObject)Instantiate(explosiveParticles, new Vector3(transform.position.x, transform.position.y, -1), transform.rotation);
+            BulletParticle bulletParticle1 = bulletParticle.GetComponent<BulletParticle>();
+            bulletParticle1.bulletColor = spriteRenderer.color;
             Destroy(gameObject);
         }
     }
