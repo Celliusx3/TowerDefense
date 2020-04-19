@@ -1,4 +1,0 @@
-#Sun Apr 19 12:18:43 MYT 2020
-base.0=/Users/Coyan/Desktop/Unity/TowerDefense/TowerDefense/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
-path.0=classes.dex
-renamed.0=classes.dex
